@@ -47,7 +47,7 @@ void kruskals(Edges *input , int N , int E ){
     }
 //     printing the output
     for(int i=0;i<N-1;i++){
-        if(output->source < output->dest){
+        if(output.source < output.dest){
             cout<<output[i].source<<" "<<output[i].dest<<" "<<output[i].weight<<endl;
         }
         else{
