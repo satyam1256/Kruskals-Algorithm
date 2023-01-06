@@ -1,0 +1,2 @@
+# Kruskals-Algorithm
+Graphs
