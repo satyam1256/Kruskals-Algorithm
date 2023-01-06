@@ -19,9 +19,10 @@ int findparent(int v , int *parent){
 }
 
 void kruskals(Edges *input , int N , int E ){
+//  sorting using inbuilt merge sort but according to the weights so here used the extra parameter compare.
     sort(input , input+E , compare);
     Edges *output = new Edges[N-1];
-
+//  initialising the parent array with their own index
     int *parent = new int[N];
     for(int i=0;i<N;i++){
         parent[i] = i;
@@ -31,7 +32,7 @@ void kruskals(Edges *input , int N , int E ){
     int i=0;
     while(count!=N-1){
         Edges currentEdge = input[i];
-
+//      finding parents and checking if edge can be made there in MST or not
         int sourceparent = findparent(currentEdge.source , parent);
         int destparent = findparent(currentEdge.dest ,parent);
 
@@ -44,7 +45,7 @@ void kruskals(Edges *input , int N , int E ){
         
 
     }
-
+//     printing the output
     for(int i=0;i<N-1;i++){
         if(output->source < output->dest){
             cout<<output[i].source<<" "<<output[i].dest<<" "<<output[i].weight<<endl;
@@ -72,6 +73,8 @@ int main(){
 }
 
 /*
+sample checking input
+
 6 11
 0 1 1
 2 3 10
